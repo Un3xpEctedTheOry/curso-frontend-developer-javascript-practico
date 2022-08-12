@@ -2,35 +2,35 @@ const navEmail = document.querySelector('.navbar-email')
 const desktopMenu = document.querySelector('.desktop-menu')
 const mobileMenuBtn = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
-const shopingCart = document.querySelector('.navbar-shopping-cart')
-const aside = document.querySelector('.product-detail')
+const shoppingCart = document.querySelector('.navbar-shopping-cart')
+const shoppingCartContainer = document.querySelector('#shopping-cart-container')
 const cardsContainer = document.querySelector('.cards-container')
 
 navEmail.addEventListener('click', toggleDesktopMenu)
 mobileMenuBtn.addEventListener('click', toggleMobileMenu)
-shopingCart.addEventListener('click', toggleAside)
+shoppingCart.addEventListener('click', toggleShoppingCartContainer)
 
 function toggleDesktopMenu() {
-   const asideClosed = aside.classList.contains('inactive')
+   const shoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive')
 
-   if (!asideClosed) {
-      aside.classList.toggle('inactive')
+   if (!shoppingCartContainerClosed) {
+      shoppingCartContainer.classList.toggle('inactive')
    }
 
    desktopMenu.classList.toggle('inactive')
 }
 
 function toggleMobileMenu() {
-   const asideClosed = aside.classList.contains('inactive')
+   const shoppingCartContainerClosed = shoppingCartContainer.classList.contains('inactive')
 
-   if (!asideClosed) {
-      aside.classList.toggle('inactive')
+   if (!shoppingCartContainerClosed) {
+      shoppingCartContainer.classList.toggle('inactive')
    }
 
    mobileMenu.classList.toggle('inactive')
 }
 
-function toggleAside() {
+function toggleShoppingCartContainer() {
    const mobileMenuClosed = mobileMenu.classList.contains('inactive')
    const desktopMenuClosed = desktopMenu.classList.contains('inactive')
 
@@ -42,24 +42,8 @@ function toggleAside() {
       toggleDesktopMenu()
    }
 
-   aside.classList.toggle('inactive')
+   shoppingCartContainer.classList.toggle('inactive')
 }
-
-// En esta sección tenemos los productos borrados de nuestro html
-/* <div class="product-card">
-<img
-   src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-   alt="">
-<div class="product-info">
-   <div>
-      <p>$120,00</p>
-      <p>Bike</p>
-   </div>
-   <figure>
-      <img src="./icons/bt_add_to_cart.svg" alt="">
-   </figure>
-</div>
-</div> */
 
 function renderProducts(productList) {
    for (product of productList) {
